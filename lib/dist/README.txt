@@ -4,7 +4,7 @@ Version: 4.3.git (17/12/2020) |  N-100415-g6baa3739f8-gef59a40c2a+1
 
 License: LGPL v3
 
-Source Code: https://github.com/xan105/node-video-capture/master/lib/src/media-autobuild_suite/build/ffmpeg-git
+Source Code: https://github.com/xan105/node-video-capture/tree/main/lib/src/build/ffmpeg-git
 
 build configuration: 
 
