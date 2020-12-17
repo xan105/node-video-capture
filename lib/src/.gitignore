@@ -20,6 +20,8 @@ update_suite.sh
 
 !build/ffmpeg_options.txt
 !build/mpv_options.txt
+!build/ffmpeg-git/
+!build/ffnvcodec-git/
 
 ## VS Code
 .vscode
