@@ -13,7 +13,7 @@ Example
 -------
 
 ```js
-"use strict"
+"use strict";
 
 const videoCapture = require("@xan105/video-capture");
 
@@ -37,7 +37,7 @@ option = {
     framerate: 60, 
     probesize: 42, //1080p
     threadQueue: 64,
-    size: "1920x1080" //default to current screen resolution,
+    size: "1920x1080", //default to current screen resolution
     videoEncodingOptions:
       "-b:v 5000k -minrate:v 2500k -maxrate:v 8000k -bufsize:v 8000k -qp:v 19 -profile:v high -rc:v vbr -level:v 4.2 -r:v 60 -g:v 120 -bf:v 3", //Tested with GTX 1060
     yuv420: true, //True: Encoding for 'dumb players' which only support the YUV planar color space with 4:2:0 chroma subsampling
