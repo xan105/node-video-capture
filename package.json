@@ -1,0 +1,54 @@
+{
+  "name": "@xan105/video-capture",
+  "version": "1.0.0",
+  "description": "Record your screen using hardware accelerated encoder.",
+  "type": "module",
+  "main": "./lib/capture.cjs",
+  "exports": {
+    "import": "./lib/esm.mjs",
+    "require": "./lib/capture.cjs"
+  },
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "engines": {
+    "node": ">=0.12"
+  },
+  "scripts": {
+    "lint": "npx eslint --ignore-path .gitignore ./**/*.{cjs,mjs}",
+    "pretty": "npx prettier --write ./**/*.{cjs,mjs}",
+    "build": "call lib/src/media-autobuild_suite.bat"
+  },
+  "keywords": [
+    "video",
+    "capture",
+    "recording",
+    "nvenc",
+    "ffmpeg"
+  ],
+  "author": {
+    "name": "Anthony Beaumont",
+    "email": "dev.xan105@outlook.be",
+    "url": "https://xan105.com/"
+  },
+  "license": "LGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xan105/node-video-capture.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xan105/node-video-capture/issues"
+  },
+  "homepage": "https://github.com/xan105/node-video-capture#readme",
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.15.0",
+    "prettier": "2.2.0"
+  },
+  "dependencies": {
+    "win-screen-resolution": "^1.0.1"
+  }
+}
