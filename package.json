@@ -27,6 +27,7 @@
     "capture",
     "recording",
     "nvenc",
+    "amf",
     "ffmpeg"
   ],
   "author": {
