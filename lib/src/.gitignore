@@ -22,6 +22,7 @@ update_suite.sh
 !build/mpv_options.txt
 !build/ffmpeg-git/
 !build/ffnvcodec-git/
+!build/AMF-git/
 
 ## VS Code
 .vscode

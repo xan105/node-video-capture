@@ -3,7 +3,7 @@
 
 # Basic built-in options, can be removed if you delete "--disable-autodetect"
 --disable-autodetect
-#--enable-amf
+--enable-amf
 #--enable-bzlib
 #--enable-cuda
 #--enable-cuvid

@@ -17,18 +17,23 @@ Example
 
 const videoCapture = require("@xan105/video-capture");
 
-videoCapture.h264_nvenc("./path/to/file.mp4").then(console.log).catch(console.error);
+videoCapture.h264_hwencode("./path/to/file.mp4","nvidia").then(console.log).catch(console.error);
 ```
 
 API
 ---
 
-`h264_nvenc(string filepath, [obj option = {}]) <promise>string`
+`h264_hwencode(string filepath, string vendor, [obj option = {}]) <promise>string`
 
-Record your screen in .mp4 using NVIDIA nvenc h264 hardware encoder at given location.<br/>
+Record your screen in .mp4 using NVIDIA nvenc or AMD amf h264 hardware encoder at given location.<br/>
 Returns mp4 filepath.<br/>
 
+- filepath: output file location 
 NB: _filepath extension will be enforced to '.mp4'_
+
+- vendor: "nvidia" or "amd"
+
+- option :
 
 ```js
 option = {
@@ -39,11 +44,11 @@ option = {
     threadQueue: 64,
     size: "1920x1080", //default to current screen resolution
     videoEncodingOptions:
-      "-b:v 5000k -minrate:v 2500k -maxrate:v 8000k -bufsize:v 8000k -qp:v 19 -profile:v high -rc:v vbr -level:v 4.2 -r:v 60 -g:v 120 -bf:v 3", //Tested with GTX 1060
+      "-b:v 5000k -minrate:v 2500k -maxrate:v 8000k -bufsize:v 8000k -qp:v 19 -profile:v high -rc:v vbr -level:v 4.2 -r:v 60 -g:v 120 -bf:v 3", //Tested with GTX 1060 and h264_nvenc
     yuv420: true, //True: Encoding for 'dumb players' which only support the YUV planar color space with 4:2:0 chroma subsampling
     mouse: false, 
     audioInterface: null, //Windows interface name for audio loopback (aka record what you hear, stereo-mix, etc)
-    audioEncodingOptions: "-b:a 160k",
+    audioEncodingOptions: "-b:a 160k", //aac codec
   };
 ```
 

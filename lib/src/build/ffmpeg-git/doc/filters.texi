@@ -2454,6 +2454,12 @@ It accepts the following values:
 @item erf
 @end table
 
+@item threshold
+Set threshold from where to start clipping. Default value is 0dB or 1.
+
+@item output
+Set gain applied to output. Default value is 0dB or 1.
+
 @item param
 Set additional parameter which controls sigmoid function.
 
@@ -7152,6 +7158,10 @@ Allowed range is 0 to 1. Default is 0.1.
 Set planes to filter. Default is first only.
 @end table
 
+@subsection Commands
+
+This filter supports the all above options as @ref{commands}.
+
 @section bitplanenoise
 
 Show and measure bit plane noise.
@@ -7659,6 +7669,9 @@ Set the sharpening strength. Default value is 0.
 Set planes to filter. Default value is to filter all
 planes except alpha plane.
 @end table
+
+@subsection Commands
+This filter supports same @ref{commands} as options.
 
 @section chromahold
 Remove all color information for all colors except for certain one.
@@ -11750,16 +11763,25 @@ It accepts the following values:
 fill pixels using outermost pixels
 
 @item mirror
-fill pixels using mirroring
+fill pixels using mirroring (half sample symmetric)
 
 @item fixed
 fill pixels with constant value
+
+@item reflect
+fill pixels using reflecting (whole sample symmetric)
+
+@item wrap
+fill pixels using wrapping
+
+@item fade
+fade pixels to constant value
 @end table
 
 Default is @var{smear}.
 
 @item color
-Set color for pixels in fixed mode. Default is @var{black}.
+Set color for pixels in fixed or fade mode. Default is @var{black}.
 @end table
 
 @subsection Commands
@@ -13949,6 +13971,10 @@ copied from first stream.
 By default value 0xf, all planes will be processed.
 @end table
 
+@subsection Commands
+
+This filter supports the all above options as @ref{commands}.
+
 @section maskedmax
 
 Merge the second and third input stream into output stream using absolute differences
@@ -13964,6 +13990,10 @@ Set which planes will be processed as bitmap, unprocessed planes will be
 copied from first stream.
 By default value 0xf, all planes will be processed.
 @end table
+
+@subsection Commands
+
+This filter supports the all above options as @ref{commands}.
 
 @section maskedmerge
 
@@ -14000,6 +14030,10 @@ copied from first stream.
 By default value 0xf, all planes will be processed.
 @end table
 
+@subsection Commands
+
+This filter supports the all above options as @ref{commands}.
+
 @section maskedthreshold
 Pick pixels comparing absolute difference of two video streams with fixed
 threshold.
@@ -14020,6 +14054,10 @@ Set which planes will be processed as bitmap, unprocessed planes will be
 copied from second stream.
 By default value 0xf, all planes will be processed.
 @end table
+
+@subsection Commands
+
+This filter supports the all above options as @ref{commands}.
 
 @section maskfun
 Create mask from input video.
@@ -17767,6 +17805,33 @@ Swap 10th and 1st frame of every ten frames of the input:
 ffmpeg -i INPUT -vf "shuffleframes=9 1 2 3 4 5 6 7 8 0" OUTPUT
 @end example
 @end itemize
+
+@section shufflepixels
+
+Reorder pixels in video frames.
+
+This filter accepts the following options:
+
+@table @option
+@item direction, d
+Set shuffle direction. Can be forward or inverse direction.
+Default direction is forward.
+
+@item mode, m
+Set shuffle mode. Can be horizontal, vertical or block mode.
+
+@item width, w
+@item height, h
+Set shuffle block_size. In case of horizontal shuffle mode only width
+part of size is used, and in case of vertical shuffle mode only height
+part of size is used.
+
+@item seed, s
+Set random seed used with shuffling pixels. Mainly useful to set to be able
+to reverse filtering process to get original input.
+For example, to reverse forward shuffle you need to use same parameters
+and exact same seed and to set direction to inverse.
+@end table
 
 @section shuffleplanes
 
