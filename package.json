@@ -1,6 +1,6 @@
 {
   "name": "@xan105/video-capture",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Record your screen using hardware accelerated encoder.",
   "type": "module",
   "main": "./lib/capture.cjs",
