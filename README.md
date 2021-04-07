@@ -4,9 +4,7 @@ Install
 -------
 
 ```
-npm install https://github.com/xan105/node-video-capture
-//or
-npm install xan105/node-video-capture
+npm install xan105/video-capture
 ```
 
 Example
@@ -46,8 +44,9 @@ option = {
     videoEncodingOptions:
       "-b:v 5000k -minrate:v 2500k -maxrate:v 8000k -bufsize:v 8000k -qp:v 19 -profile:v high -rc:v vbr -level:v 4.2 -r:v 60 -g:v 120 -bf:v 3", //Tested with GTX 1060 and h264_nvenc
     yuv420: true, //True: Encoding for 'dumb players' which only support the YUV planar color space with 4:2:0 chroma subsampling
-    mouse: false, 
+    mouse: false, //Capture the mouse
     audioInterface: null, //Windows interface name for audio loopback (aka record what you hear, stereo-mix, etc)
+    audioDelay: 700, //delay in ms; Set to 0 to disable 
     audioEncodingOptions: "-b:a 160k", //aac codec
   };
 ```
