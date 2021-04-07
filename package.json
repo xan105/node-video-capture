@@ -50,6 +50,6 @@
     "prettier": "2.2.0"
   },
   "dependencies": {
-    "win-screen-resolution": "^1.0.1"
+    "win-screen-resolution": "^1.0.2"
   }
 }
