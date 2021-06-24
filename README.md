@@ -46,17 +46,17 @@ option = {
     probesize: 42, //1080p
     threadQueue: 512,
     size: "1920x1080", //default to current screen resolution
-    videoEncodingOptions: "-rc:v vbr -level:v 4.2 -g:v 120 -bf:v 3 -qp:v 19"* //default to a custom profile found in ffmpeg.cjs
+    videoEncodingOptions: "-rc:v vbr -level:v 4.2 -g:v 120 -bf:v 3 -qp:v 19",//* default to a custom profile
     bits10: false, //use 10bits color depth
     mouse: false, //capture the mouse
     audioInterface: null, //Windows interface name for audio loopback (aka record what you hear, stereo-mix, etc)
-    audioDelay: 700, (ms) //delay; Set to 0 to disable 
-    audioEncodingOptions: "",*
+    audioDelay: 700, //(ms) delay; Set to 0 to disable 
+    audioEncodingOptions: "",//*
     bitrate: {
-      video: 6000, (k) //video
-      min: 3000, (k) //video
-      max: 9000, (k) //video
-      audio: 160 (k) //audio
+      video: 6000, //(k) video
+      min: 3000, //(k) video
+      max: 9000, //(k) video
+      audio: 160 //(k) audio
     }
   };
 ```
