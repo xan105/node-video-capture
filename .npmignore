@@ -1,5 +1,4 @@
 .github/
 .eslintrc.json
-.prettierrc.json
 lib/src/
 test/

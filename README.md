@@ -13,42 +13,52 @@ Example
 ```js
 "use strict";
 
-const videoCapture = require("@xan105/video-capture");
+const { hwencode } = require("@xan105/video-capture");
 
-videoCapture.h264_hwencode("./path/to/file.mp4","nvidia").then(console.log).catch(console.error);
+hwencode("./path/to/file.mp4","h264_nvenc").then(console.log).catch(console.error);
 ```
 
 API
 ---
 
-`h264_hwencode(string filepath, string vendor, [obj option = {}]) <promise>string`
+`hwencode(string filepath, string codec, [obj option = {}]) <promise>string`
 
-Record your screen in .mp4 using NVIDIA nvenc or AMD amf h264 hardware encoder at given location.<br/>
+Record your screen in .mp4 using NVIDIA nvenc or AMD amf with h264 or h265/HEVC hardware encoder at given location.<br/>
 Returns mp4 filepath.<br/>
 
-- filepath: output file location 
+- filepath: output file location<br/>
 NB: _filepath extension will be enforced to '.mp4'_
 
-- vendor: "nvidia" or "amd"
+- codec: 
+
+  | / |NVIDIA|AMD|
+  |---|------|---|
+  |H.264/AVC|h264_nvenc|h264_amf|
+  |H.265/HEVC|hevc_nvenc|hevc_amf|
 
 - option :
 
 ```js
 option = {
-    overwrite: false,
-    timeLength: "00:00:10", //duration
-    framerate: 60, 
+    overwrite: false, //Allow (true) file overwrite if target already exists
+    timeLength: "00:00:20", //duration
+    framerate: 60, //HEVC can reach up to 100, 120 or 150
     probesize: 42, //1080p
-    threadQueue: 64,
+    threadQueue: 512,
     size: "1920x1080", //default to current screen resolution
-    videoEncodingOptions:
-      "-b:v 5000k -minrate:v 2500k -maxrate:v 8000k -bufsize:v 8000k -qp:v 19 -profile:v high -rc:v vbr -level:v 4.2 -r:v 60 -g:v 120 -bf:v 3", //Tested with GTX 1060 and h264_nvenc
-    yuv420: true, //True: Encoding for 'dumb players' which only support the YUV planar color space with 4:2:0 chroma subsampling
-    mouse: false, //Capture the mouse
+    videoEncodingOptions: "-rc:v vbr -level:v 4.2 -g:v 120 -bf:v 3 -qp:v 19"* //default to a custom profile found in ffmpeg.cjs
+    bits10: false, //use 10bits color depth
+    mouse: false, //capture the mouse
     audioInterface: null, //Windows interface name for audio loopback (aka record what you hear, stereo-mix, etc)
-    audioDelay: 700, //delay in ms; Set to 0 to disable 
-    audioEncodingOptions: "-b:a 160k", //aac codec
+    audioDelay: 700, (ms) //delay; Set to 0 to disable 
+    audioEncodingOptions: "",*
+    bitrate: {
+      video: 6000, (k) //video
+      min: 3000, (k) //video
+      max: 9000, (k) //video
+      audio: 160 (k) //audio
+    }
   };
 ```
 
-NB: _Please refer to ffmpeg regarding video and audio encoding options._
+NB: *_Please refer to ffmpeg regarding video and audio encoding options._

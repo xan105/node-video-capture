@@ -1,6 +1,6 @@
 {
   "name": "@xan105/video-capture",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "Record your screen using hardware accelerated encoder.",
   "type": "module",
   "main": "./lib/capture.cjs",
@@ -19,7 +19,6 @@
   },
   "scripts": {
     "lint": "npx eslint --ignore-path .gitignore ./**/*.{cjs,mjs}",
-    "pretty": "npx prettier --write ./**/*.{cjs,mjs}",
     "build": "call lib/src/media-autobuild_suite.bat"
   },
   "keywords": [
@@ -45,9 +44,7 @@
   },
   "homepage": "https://github.com/xan105/node-video-capture#readme",
   "devDependencies": {
-    "eslint": "^7.6.0",
-    "eslint-config-prettier": "^6.15.0",
-    "prettier": "2.2.0"
+    "eslint": "^7.29.0"
   },
   "dependencies": {
     "win-screen-resolution": "^1.1.0"

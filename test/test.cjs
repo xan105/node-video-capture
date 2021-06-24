@@ -1,8 +1,8 @@
 "use strict";
 
-const capture = require("../lib/capture.cjs");
+const { hwencode } = require("../lib/capture.cjs");
 
-capture.hevc_hwencode("./dump/vid eo hevc.mp4", "nvidia", {
+hwencode("./dump/vid eo h264.mp4", "h264_nvenc", {
     framerate: 60,
     bits10: false,
     overwrite: true,
@@ -11,8 +11,8 @@ capture.hevc_hwencode("./dump/vid eo hevc.mp4", "nvidia", {
 .then(console.log)
 .catch(console.error);
 
-/*capture.h264_hwencode("./dump/vid eo h264.mp4", "nvidia", {
-    framerate: 30,
+/*hwencode("./dump/vid eo h265.mp4", "hevc_nvenc", {
+    framerate: 60,
     bits10: true,
     overwrite: true,
     audioInterface: "virtual-audio-capturer",
