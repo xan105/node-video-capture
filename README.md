@@ -31,7 +31,7 @@ NB: _filepath extension will be enforced to '.mp4'_
 
 - codec: 
 
-  | / |NVIDIA|AMD|
+  | |NVIDIA|AMD|
   |---|------|---|
   |H.264/AVC|h264_nvenc|h264_amf|
   |H.265/HEVC|hevc_nvenc|hevc_amf|
