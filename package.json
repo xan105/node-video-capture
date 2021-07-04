@@ -47,6 +47,6 @@
     "eslint": "^7.29.0"
   },
   "dependencies": {
-    "win-screen-resolution": "^1.1.0"
+    "win-screen-resolution": "^1.2.0"
   }
 }
