@@ -1,0 +1,12 @@
+/local32/
+/local64/
+/msys64/
+/msys32/
+/build/*-git/
+/build/*.log
+/build/*.diff
+/build/last_run
+/build/last_successful_run
+/build/newchangelog
+/build/CHANGELOG.txt
+mintty.lnk
