@@ -1,32 +1,41 @@
-Record your screen using hardware accelerated encoder
+About
+=====
 
-Install
--------
-
-```
-npm install xan105/video-capture
-```
+Record your screen using hardware accelerated encoder.<br/>
+NVIDIA nvenc or AMD amf.
 
 Example
--------
+=======
 
 ```js
-"use strict";
+import { hwencode } from "@xan105/video-capture";
 
-const { hwencode } = require("@xan105/video-capture");
+hwencode("./path/to/file.mp4","h264_nvenc")
+.then(console.log)
+.catch(console.error);
+```
 
-hwencode("./path/to/file.mp4","h264_nvenc").then(console.log).catch(console.error);
+Install
+=======
+
+```
+npm install @xan105/video-capture
 ```
 
 API
----
+===
 
-`hwencode(string filepath, string codec, [obj option = {}]) <promise>string`
+⚠️ This module is only available as an ECMAScript module (ESM) starting with version 2.0.0.<br />
+Previous version(s) are CommonJS (CJS) with an ESM wrapper.
+
+## Named export
+
+#### `hwencode(filePath: string, codec: string, option?: obj): Promise<string>`
 
 Record your screen in .mp4 using NVIDIA nvenc or AMD amf with h264 or h265/HEVC hardware encoder at given location.<br/>
 Returns mp4 filepath.<br/>
 
-- filepath: output file location<br/>
+- filePath: output file location<br/>
 NB: _filepath extension will be enforced to '.mp4'_
 
 - codec: 
@@ -50,7 +59,7 @@ option = {
     bits10: false, //use 10bits color depth
     mouse: false, //capture the mouse
     audioInterface: null, //Windows interface name for audio loopback (aka record what you hear, stereo-mix, etc)
-    audioDelay: 700, //(ms) delay; Set to 0 to disable 
+    audioDelay: 900, //(ms) delay; Set to 0 to disable 
     audioEncodingOptions: "",//*
     bitrate: {
       video: 6000, //(k) video
