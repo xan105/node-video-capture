@@ -1,6 +1,6 @@
 {
   "name": "@xan105/video-capture",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Record your screen using hardware accelerated encoder.",
   "type": "module",
   "exports": "./lib/index.js",
@@ -44,9 +44,9 @@
     "eslint": "^8.10.0"
   },
   "dependencies": {
-    "@xan105/error": "^1.1.1",
-    "@xan105/fs": "^2.0.3",
-    "@xan105/is": "^2.2.0",
-    "win-screen-resolution": "^2.0.2"
+    "@xan105/error": "^1.2.0",
+    "@xan105/fs": "^2.0.4",
+    "@xan105/is": "^2.4.0",
+    "win-screen-resolution": "^2.0.3"
   }
 }
