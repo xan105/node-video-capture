@@ -12,6 +12,8 @@ declare interface IOption{
   probesize?: number,
   threadQueue?: number,
   size?: string,
+  offset_x?: number,
+  offset_y?: number,
   videoEncodingOptions?: string | null,
   bits10?: boolean,
   mouse?: boolean,

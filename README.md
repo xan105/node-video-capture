@@ -55,6 +55,8 @@ option = {
     probesize: 42, //1080p
     threadQueue: 512,
     size: "1920x1080", //default to current screen resolution
+    offset_x: 0,
+    offset_y: 0,
     videoEncodingOptions: "-rc:v vbr -level:v 4.2 -g:v 120 -bf:v 3 -qp:v 19",//* default to a custom profile
     bits10: false, //use 10bits color depth
     mouse: false, //capture the mouse
